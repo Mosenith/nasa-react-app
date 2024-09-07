@@ -1,7 +1,7 @@
 export default function Main() {
     return (
-        <div>
-            
+        <div className="imageContainer">
+            <img src="moon-earth.jpeg" alt="moon-earth-pic" className="bgImage"></img>
         </div>
     )
 }
