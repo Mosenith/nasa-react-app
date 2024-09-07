@@ -4,12 +4,12 @@ import SideBar from "./components/SideBar";
 import Footer from "./components/Footer";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [showModal, setShowModal] = useState(true);
 
   return (
     <>
       <Main />
-      <SideBar>adfajlkdj</SideBar>
+      {showModal && <SideBar />}
       <Footer />
     </>
   );
