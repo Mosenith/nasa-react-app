@@ -4,13 +4,18 @@ import SideBar from "./components/SideBar";
 import Footer from "./components/Footer";
 
 function App() {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+
+  function handleToggleModal() {
+    console.log("Click show/hide description");
+    setShowModal(!showModal);
+  }
 
   return (
     <>
       <Main />
-      {showModal && <SideBar />}
-      <Footer />
+      {showModal && <SideBar handleToggleModal={handleToggleModal} />}
+      <Footer handleToggleModal={handleToggleModal} />
     </>
   );
 }

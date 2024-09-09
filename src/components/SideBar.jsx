@@ -1,19 +1,22 @@
 import React from "react";
 
-export default function SideBar() {
+export default function SideBar(props) {
+  const { handleToggleModal } = props;
   return (
     <div className="sidebar">
-      <div className="bgOverlay"></div>
+      <div onClick={handleToggleModal} className="bgOverlay">
+        <h1>this is overlay</h1>
+      </div>
       <div className="sidebarContents">
         <h2>Earth From Moon</h2>
         <div>
-          <p>Description</p>
+          <h3>Description</h3>
           <p>
             From Earth, the Moon appears to move about one outstretched fist to
             the east each night.
           </p>
         </div>
-        <button>
+        <button onClick={handleToggleModal}>
           <i className="fa-solid fa-arrow-right"></i>
         </button>
       </div>
