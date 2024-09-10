@@ -1,17 +1,16 @@
 import React from "react";
 
 export default function SideBar(props) {
-  const { handleToggleModal } = props;
+  const { handleToggleModal, data } = props;
   return (
     <div className="sidebar">
       <div onClick={handleToggleModal} className="bgOverlay"></div>
       <div className="sidebarContents">
-        <h2>Earth From Moon</h2>
+        <h2>{data.title}</h2>
         <div>
           <h3>Description</h3>
           <p>
-            From Earth, the Moon appears to move about one outstretched fist to
-            the east each night.
+            {data.explanation}
           </p>
         </div>
         <button onClick={handleToggleModal}>

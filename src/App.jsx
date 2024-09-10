@@ -4,6 +4,8 @@ import SideBar from "./components/SideBar";
 import Footer from "./components/Footer";
 
 function App() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   function handleToggleModal() {
@@ -18,8 +20,9 @@ function App() {
 
       try {
         const res = await fetch(url);
-        const data = await res.json();
-        console.log("APOD data:", data);
+        const apiData = await res.json();
+        setData(apiData);
+        console.log("APOD data:", apiData);
       } catch (error) {
         console.error("Error fetching APOD data:", error);
       }
@@ -29,9 +32,15 @@ function App() {
 
   return (
     <>
-      <Main />
-      {showModal && <SideBar handleToggleModal={handleToggleModal} />}
-      <Footer handleToggleModal={handleToggleModal} />
+      {data ? (
+        <Main data={data} />
+      ) : (
+        <div className="loadingState">
+          <i className="fa-solid fa-gear"></i>
+        </div>
+      )}
+      {showModal && <SideBar data={data} handleToggleModal={handleToggleModal} />}
+      {data && <Footer data={data} handleToggleModal={handleToggleModal} />}
     </>
   );
 }

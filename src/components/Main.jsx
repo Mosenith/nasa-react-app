@@ -1,7 +1,9 @@
-export default function Main() {
+export default function Main(props) {
+    const { data } = props;
+    
     return (
         <div className="imageContainer">
-            <img src="green-light.jpg" alt="moon-earth-pic" className="bgImage"></img>
+            <img src={data.hdurl} alt={data.title} className="bgImage"></img>
         </div>
     )
 }
