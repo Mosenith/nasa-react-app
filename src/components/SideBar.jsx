@@ -6,11 +6,11 @@ export default function SideBar(props) {
     <div className="sidebar">
       <div onClick={handleToggleModal} className="bgOverlay"></div>
       <div className="sidebarContents">
-        <h2>{data.title}</h2>
-        <div>
-          <h3>Description</h3>
+        <h2>{data?.title}</h2>
+        <div className="descriptionContainer">
+          <p className="descriptionTitle">{data?.date}</p>
           <p>
-            {data.explanation}
+            {data?.explanation}
           </p>
         </div>
         <button onClick={handleToggleModal}>
